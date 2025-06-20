@@ -91,7 +91,9 @@ const SmallScreenMenuNav = () => {
       "
       >
         <SheetHeader>
-          <SheetTitle className={`${ANTON.className} tracking-wide text-lg`}>
+          <SheetTitle
+            className={`${ANTON.className} tracking-wide text-lg text-white`}
+          >
             SERVI <span>apps.</span>
           </SheetTitle>
           <SheetDescription className="text-gray-200">
