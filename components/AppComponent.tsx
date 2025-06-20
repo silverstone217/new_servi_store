@@ -81,7 +81,8 @@ const AppComponent = () => {
           {app.DataUtilities.map((util, idx) => (
             <div
               key={idx}
-              className="flex items-start gap-3 bg-blue-50 rounded-lg p-3 hover:bg-blue-100 transition-colors"
+              className="flex items-start flex-col
+              gap-2 bg-blue-50 rounded-lg p-3 hover:bg-blue-100 transition-colors"
             >
               <span className="shrink-0 font-semibold text-blue-700 text-sm">
                 {util.title}:
