@@ -20,11 +20,11 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <header className=" fixed top-4  right-4 left-4 text-white">
+    <header className=" fixed top-4  right-4 left-4 text-white z-50">
       {/* container */}
       <div
-        className="mx-auto w-full  max-w-7xl px-4 py-2 rounded flex  
-      items-center justify-between gap-4  transition-all duration-500 ease-in-out
+        className="mx-auto w-full  max-w-7xl px-4 py-2 rounded flex  backdrop-blur-2xl
+      items-center justify-between gap-4  transition-all duration-500 ease-in-out md:backdrop-blur-none
 
       "
       >
