@@ -2,7 +2,7 @@ import Hero_section from "@/components/hero-section";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen flex flex-col gap-5">
+    <div>
       <Hero_section />
     </div>
   );

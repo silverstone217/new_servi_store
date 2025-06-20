@@ -14,7 +14,7 @@ import { Download } from "lucide-react";
 const Hero_section = () => {
   return (
     <div
-      className="full h-full flex items-center justify-center 
+      className="full h-svh flex items-center justify-center 
     bg-gradient-to-b from-blue-800 via-blue-700 to-blue-500
      transition-all duration-500 ease-in-out
     "
@@ -24,7 +24,7 @@ const Hero_section = () => {
       {/* Contenu de la page ici */}
       <div className="relative z-10 p-8 text-white">
         <h1
-          className={`${ANTON.className} text-4xl font-bold mb-4 max-w-lg text-center`}
+          className={`${ANTON.className} text-3xl xl:text-4xl font-bold mb-3 max-w-lg text-center`}
         >
           Retrouver et <span className="text-[#2f95dc]">télécharger</span>{" "}
           toutes les applications mobiles de SERVI
@@ -37,7 +37,7 @@ const Hero_section = () => {
             alt="image"
             width={1200}
             height={1200}
-            className="w-full object-cover max-w-lg h-auto z-10"
+            className="w-full object-cover md:max-w-sm xl:max-w-lg h-auto z-10"
             priority
           />
           <div
@@ -53,7 +53,7 @@ const Hero_section = () => {
       <div
         className="w-full flex items-center gap-3 justify-center px-4  
         mt-4 overflow-x-auto overflow-y-hidden absolute bottom-4 text-white
-         transition-all duration-500 ease-in-out
+         transition-all duration-500 ease-in-out z-20
         "
       >
         {ServiApps.map((app, idx) => (
@@ -83,7 +83,7 @@ const Hero_section = () => {
             <PopoverContent className="bg-white border-white shadow-2xl">
               <div className="flex flex-col gap-4">
                 <span
-                  className={`text-bas font-bold ${ANTON.className} tracking-wider uppercase`}
+                  className={`text-xl font-bold ${ANTON.className} tracking-wider uppercase`}
                 >
                   {app.name}
                 </span>
