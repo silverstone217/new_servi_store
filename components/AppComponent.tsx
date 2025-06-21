@@ -5,7 +5,7 @@ import { Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // interface AppProps {
 //   app: {
@@ -24,6 +24,19 @@ const AppComponent = () => {
   const appUrl = usePathname();
 
   const app = ServiApps.find((a) => a.path.toLowerCase().includes(appUrl));
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (app) {
+      const interval = setInterval(
+        () => setIndex((prevIndex) => (prevIndex + 1) % app.images.length),
+        5000
+      );
+
+      return () => clearInterval(interval);
+    }
+  }, [app]);
 
   if (!app || appUrl === "/")
     return (
@@ -94,7 +107,46 @@ const AppComponent = () => {
       </div>
 
       {/* images */}
-      <div className="w-full bg-blue-600 rounded"></div>
+      <div
+        className="w-full bg-blue-600 rounded lg:grid 
+      flex flex-col grid-cols-2 gap-4
+      lg:p-4 transition-all duration-500 ease-in-out
+      "
+      >
+        {/* image central */}
+        <div className="w-full">
+          <Image
+            src={app.images[index]}
+            width={800}
+            height={1000}
+            alt={app.name + " image " + (index + 1)}
+            priority={index === 0}
+            className="w-full h-auto object-cover rounded "
+          />
+        </div>
+        {/* images secondaires */}
+        <div
+          className="flex p-4 lg:flex-col items-center justify-center gap-3 w-full
+        lg:gap-4 lg:items-start
+        "
+        >
+          {app.images.map((img, idx) => (
+            <Image
+              key={idx}
+              src={img}
+              width={400}
+              height={600}
+              alt={app.name + " image " + (idx + 1)}
+              className={`w-16 lg:w-20 h-auto object-cover rounded shrink-0 
+                transition-all duration-500 ease-in-out cursor-pointer
+                ${idx === index ? "brightness-50" : ""}
+                `}
+              onClick={() => setIndex(idx)}
+              priority
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
