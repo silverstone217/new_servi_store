@@ -114,20 +114,20 @@ const AppComponent = () => {
       "
       >
         {/* image central */}
-        <div className="w-full">
+        <div className="w-full flex items-center justify-center">
           <Image
             src={app.images[index]}
             width={800}
             height={1000}
             alt={app.name + " image " + (index + 1)}
             priority={index === 0}
-            className="w-full h-auto object-cover rounded "
+            className="w-full h-auto lg:w-auto lg:h-[500px] object-cover rounded "
           />
         </div>
         {/* images secondaires */}
         <div
-          className="flex p-4 lg:flex-col items-center justify-center gap-3 w-full
-        lg:gap-4 lg:items-start
+          className="flex p-4  w-full items-center
+        lg:grid-cols-3 lg:grid gap-4 justify-center
         "
         >
           {app.images.map((img, idx) => (
@@ -137,7 +137,7 @@ const AppComponent = () => {
               width={400}
               height={600}
               alt={app.name + " image " + (idx + 1)}
-              className={`w-16 lg:w-20 h-auto object-cover rounded shrink-0 
+              className={`w-16 lg:w-full h-auto object-cover rounded shrink-0 
                 transition-all duration-500 ease-in-out cursor-pointer
                 ${idx === index ? "brightness-50" : ""}
                 `}
